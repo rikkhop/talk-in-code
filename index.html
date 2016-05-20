@@ -13,21 +13,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.1.1/normalize.min.css">
   <link rel="stylesheet" href="css/style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   
 </head>
 <body class="wrapper">
 	<div id="fb-root"></div>
-	<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=238677186523439";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+	<script>
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=238677186523439";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
+
 	<header class="group">
 		<ul class="like-buttons">
 			<li><div class="fb-like" data-href="http://rikkhop.github.io/talk-in-code/" data-width="40px" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div></li>
-			<li>Google</li>
+			<li class="g-plusone"></li>
 			<li>Twitter</li>
 		</ul>
 		<div class="header-title">
