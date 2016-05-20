@@ -9,18 +9,26 @@ header {
 	display: none;
 	float: right;
 	margin: 0 35px;
-		& a {
-			font-size: 22px;
-		}
 		@media #{$brk-sm} {
 			display: block;
+		}
+		& p {
+			font-size: 22px;
+			margin: 10px 0;
 		}
 }
 
 .like-buttons {
 	float: left;
+	margin: 10px 0;
 	 	& li {
 			float: left;
 			padding-right: 15px; 
 	 	}
+}
+
+// Change width og G+ button
+
+#___plusone_0 { 
+	width:60px !important; 
 }

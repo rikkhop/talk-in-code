@@ -8,15 +8,15 @@ html {
 
 body {
 	color: $dark-gray;
+	font-size: 14px;
+	font-weight: 700;
+		@media #{$brk-sm} {
+			font-size: 17px;
+		}
 }
 
 p {
 	font-family: $content-font;
-	font-weight: 700;
-	font-size: 14px;
-		@media #{$brk-sm} {
-			font-size: 17px;
-		}
 }
 
 a {

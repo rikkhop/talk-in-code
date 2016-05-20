@@ -11,15 +11,15 @@ html {
   min-height: 100%; }
 
 body {
-  color: #4b4b4b; }
+  color: #4b4b4b;
+  font-size: 14px;
+  font-weight: 700; }
+  @media (min-width: 850px) {
+    body {
+      font-size: 17px; } }
 
 p {
-  font-family: "Roboto", sans-serif;
-  font-weight: 700;
-  font-size: 14px; }
-  @media (min-width: 850px) {
-    p {
-      font-size: 17px; } }
+  font-family: "Roboto", sans-serif; }
 
 a {
   text-decoration: none; }
@@ -183,6 +183,9 @@ textarea:focus {
   padding-left: 20px;
   margin-left: 0; }
 
+#___plusone_0 {
+  width: 60px !important; }
+
 .group:after {
   content: "";
   display: table;
@@ -246,16 +249,21 @@ header {
   display: none;
   float: right;
   margin: 0 35px; }
-  .header-title a {
-    font-size: 22px; }
   @media (min-width: 850px) {
     .header-title {
       display: block; } }
+  .header-title p {
+    font-size: 22px;
+    margin: 10px 0; }
 
 .like-buttons {
-  float: left; }
+  float: left;
+  margin: 10px 0; }
   .like-buttons li {
     float: left;
     padding-right: 15px; }
+
+#___plusone_0 {
+  width: 60px !important; }
 
 /*# sourceMappingURL=style.css.map */
