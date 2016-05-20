@@ -9,7 +9,6 @@ html {
 body {
 	color: $dark-gray;
 	font-size: 14px;
-	font-weight: 700;
 		@media #{$brk-sm} {
 			font-size: 17px;
 		}
@@ -17,6 +16,7 @@ body {
 
 p {
 	font-family: $content-font;
+	font-weight: 700;
 }
 
 a {

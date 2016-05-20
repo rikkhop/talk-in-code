@@ -68,7 +68,7 @@ var UI = {
 	sharingBtnHTML: function(morseCode) {
 		var sharingBtn = "";
 
-		sharingBtn += '<a class="btn" href="https://twitter.com/intent/tweet?text=' + morseCode + 'Translate it at www." onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");return false;">Tweet It</a>';
+		sharingBtn += '<a class="btn" href="https://twitter.com/intent/tweet?text=' + morseCode + 'Translate it at www." onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600");return false;">Tweet It</a>';
 		sharingBtn += '<a class="btn" href="http://www.facebook.com/sharer.php?u=file:///C:/xampp/htdocs/talkincode/index.html#output" title="Facebook share" target="_blank">Facebook It</a>';
 		sharingBtn += '<a class="btn" href="https://plus.google.com/share?url=file:///C:/xampp/htdocs/talkincode/index.html#output" onclick="javascript:window.open("http://example.com", "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600"); return false;">G+ It</a>';
 
