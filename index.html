@@ -5,6 +5,12 @@
   <title>Talk In Code</title>
   <meta name="description" content="A one page app that converts text to morse code">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--Facebook open graph tags -->
+  <meta property="og:url" content="http://rikkhop.github.io/talk-in-code/" />
+	<meta property="og:title" content="Talk In Code" />
+	<meta property="og:description" content="Translate a message to morse code" />
+	<meta property="og:site_name" content="Talk In Code" />
+	<meta property="fb:app_id" content="238677186523439" />
   <!--[if lt IE 8]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
@@ -17,6 +23,17 @@
   
 </head>
 <body class="wrapper">
+
+	<div id="fb-root"></div>
+	<script>
+		(function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=238677186523439";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+	</script>
 	<header class="group">
 		<ul class="like-buttons">
 			<li><a class="fb-like" data-href="http://rikkhop.github.io/talk-in-code/" data-width="40px" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></a></li>
@@ -45,20 +62,29 @@
 	<script type="text/javascript" src="js/app.js"></script>
 
 	<!--Social scripts -->
-	<div id="fb-root"></div>
-	<script>
-		(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=238677186523439";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
+
+	<!--Facebook script -->
+	
+	
+	<!--Twitter script -->
+	<script>window.twttr = (function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0],
+	    t = window.twttr || {};
+	  if (d.getElementById(id)) return t;
+	  js = d.createElement(s);
+	  js.id = id;
+	  js.src = "https://platform.twitter.com/widgets.js";
+	  fjs.parentNode.insertBefore(js, fjs);
+	 
+	  t._e = [];
+	  t.ready = function(f) {
+	    t._e.push(f);
+	  };
+	 
+	  return t;
+	}(document, "script", "twitter-wjs"));</script>
 
 	<script src="https://apis.google.com/js/platform.js" async defer></script>
-	
-  <script type="text/javascript" async src="https://platform.twitter.com/widgets.js"></script>
 	
 
 </body>
