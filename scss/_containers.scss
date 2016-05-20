@@ -16,16 +16,15 @@
 	margin: 0 auto;
 		@media #{$brk-sm} {
 			padding: 0 75px 0 15px;
-			margin: 0 auto;
 		}
 }
 
 .intro {
-	margin: 100px 0 50px;
-	padding: 0 15px;
+	padding: 100px 15px 0;
+	margin-bottom: 30px;
 		@media #{$brk-sm} {
-			margin: 140px 0 50px;
-			padding: 0 30px;
+			padding: 140px 30px 0;
+			margin-bottom: 50px;
 		}
 }
 
