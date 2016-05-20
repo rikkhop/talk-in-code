@@ -69,17 +69,17 @@ var UI = {
 		var sharingBtn = "";
 
 		sharingBtn += '<a class="btn" href="https://twitter.com/intent/tweet?text=' + morseCode + 'Translate it at www.rikkhop.github.io/talk-in-code/" onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=600");return false;">Tweet It</a>';
-		sharingBtn += '<a class="btn" onclick="UI.facebookPublish()">Facebook It</a>';
+		sharingBtn += '<a class="btn" onclick="UI.facebookPublish(' + morseCode + ')">Facebook It</a>';
 		sharingBtn += '<a class="btn" href="https://plus.google.com/share?url=http://rikkhop.github.io/talk-in-code/" onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");return false;">G+ It</a>';
 
 		return sharingBtn;
 	},
 
-	facebookPublish: function() {
+	facebookPublish: function(morseCode) {
 		FB.ui({
 		  method: 'share',
 		  href: 'http://rikkhop.github.io/talk-in-code/',
-		  quote: 'Translate it at http://rikkhop.github.io/talk-in-code/',
+		  quote: 'Translate ' + morseCode + ' at http://rikkhop.github.io/talk-in-code/',
 		}, function(response){});
 	},
 
