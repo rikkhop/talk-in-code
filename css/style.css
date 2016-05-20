@@ -255,6 +255,7 @@ header {
 .like-buttons {
   float: left; }
   .like-buttons li {
-    float: left; }
+    float: left;
+    padding-right: 15px; }
 
 /*# sourceMappingURL=style.css.map */
