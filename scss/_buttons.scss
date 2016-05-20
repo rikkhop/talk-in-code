@@ -1,0 +1,49 @@
+.btn {
+	font-family: $brand-font;
+	font-size: 18px;
+	color: $yellow;
+	background: $dark-gray;
+	display: inline-block;
+	text-transform: uppercase;
+	padding: 20px;
+	margin: 20px 15px 0 0;
+	border: 0;
+	cursor: pointer;
+	white-space: nowrap;
+	@include transition(background 0.2s ease-out, color 0.2s ease-out);
+		@media #{$brk-sm} {
+			margin: 30px 25px 0 0;
+			padding: 25px;
+			font-size: 30px;
+		}
+}
+
+.btn:hover {
+	color: $dark-gray;
+	background: $yellow;
+	border: 0;
+}
+
+.btn:focus {
+	outline: none;
+}
+
+.clear {
+	width: 45px;
+	position: absolute;
+	right: 30px;
+	margin-top: 35px;
+	float: right;
+	display: block;
+	cursor: pointer;
+		@media #{$brk-sm} {
+			width: 60px;
+			right: 55px;
+			margin-top: 37px;
+		}
+}
+
+.like-buttons {
+	padding-left: 20px;
+	margin-left: 0;
+}

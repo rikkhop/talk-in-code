@@ -1,0 +1,19 @@
+.input-container {
+	position: relative;
+	border-top: 8px solid $dark-gray;
+	border-bottom: 8px solid $dark-gray;
+	overflow: hidden;
+}
+
+.input-container textarea,
+.input-container p {
+	height: 200px;
+	padding: 0 15px;
+	margin: 30px 0;
+	width: 80%;
+	overflow: auto;
+		@media #{$brk-sm} {
+			height: 245px;
+			padding: 0 30px;
+		}
+}

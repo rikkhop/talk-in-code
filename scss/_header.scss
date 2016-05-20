@@ -1,0 +1,25 @@
+header {
+	background: $white;
+	position: absolute;
+	width: 100%;
+	top: 0;
+}
+
+.header-title {
+	display: none;
+	float: right;
+	margin: 0 35px;
+		& a {
+			font-size: 22px;
+		}
+		@media #{$brk-sm} {
+			display: block;
+		}
+}
+
+.like-buttons {
+	float: left;
+	 	& li {
+			float: left;
+	 	}
+}

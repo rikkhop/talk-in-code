@@ -1,0 +1,102 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	min-height: 100%;
+}
+
+body {
+	color: $dark-gray;
+}
+
+p {
+	font-family: $content-font;
+	font-weight: 700;
+	font-size: 14px;
+		@media #{$brk-sm} {
+			font-size: 17px;
+		}
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style-type: none;
+}
+
+textarea {
+	color: $dark-gray;
+	text-transform: uppercase;
+	resize: none;
+	background: transparent;
+	border: 0;
+	padding: 0;
+	vertical-align: bottom;
+}
+
+textarea:focus {
+	border: none;
+	outline: none;
+	color: $dark-gray;
+}
+
+//placeholder styles to change placeholder colour and fadeout text on focus 
+
+::-webkit-input-placeholder { /* Chrome */
+  color: $dark-gray;
+  opacity: 1;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+:-ms-input-placeholder { /* IE 10+ */
+  color: $dark-gray;
+  opacity: 1;
+  -ms-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+::-moz-placeholder { /* Firefox 19+ */
+  color: $dark-gray;
+  opacity: 1;
+  -moz-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: $dark-gray;
+  opacity: 1;
+  -moz-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+:focus::-webkit-input-placeholder { /* Chrome */
+	color: $dark-gray;
+  opacity: 0;
+  -webkit-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+:focus:-ms-input-placeholder { /* IE 10+ */
+	color: $dark-gray;
+  opacity: 0;
+  -ms-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+:focus::-moz-placeholder { /* Firefox 19+ */
+	color: $dark-gray;
+  opacity: 0;
+  -moz-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}
+
+:focus:-moz-placeholder { /* Firefox 4 - 18 */
+	color: $dark-gray;
+  opacity: 0;
+  -moz-transition: opacity 0.2s ease;
+  transition: opacity 0.2s ease;
+}

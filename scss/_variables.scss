@@ -1,0 +1,26 @@
+////////////////////
+//Colours
+////////////////////
+
+$white: #fff;
+$dark-gray: #4b4b4b;
+$yellow: #f6c500;
+
+
+////////////////////
+//Fonts
+////////////////////
+
+$brand-font: "Bebas Neue", sans-serif;
+$content-font: "Roboto", sans-serif;
+
+///////////////////
+//Breakpoints
+///////////////////
+
+$brk-sm: '(min-width: 850px)';
+
+%indent {
+	margin: 30px 25px;
+}
+
