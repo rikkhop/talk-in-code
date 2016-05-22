@@ -51,7 +51,7 @@ var UI = {
 
 	outputHTML: function(code) {
 		var outputHTML = "";
-
+		//itemprop defines description setting for G+ sharing
 		outputHTML += '<p id="output" itemprop="description" class="text-main">';
 		outputHTML += code;
 		outputHTML += '</p>';
@@ -79,13 +79,14 @@ var UI = {
 		$("#controls").append(sharingBtns);
 
 		sharing.addTwttrClickHandler();
+		sharing.addFacebookClickHandler(code);
 		sharing.googleInteractive(code);
 
 	},
 
 	reset: function() {
 		$("#app").find("textarea").remove();
-		$("#app").children("p").remove();
+		$("#app").find("p").remove();
 		$("#controls").children().remove();
 		UI.displayInput();
 	},
@@ -121,11 +122,17 @@ var sharing = {
 		return twitterBtn;
 	},
 
-	facebookBtnHTML: function(code) {
-		var m = escape(code);
-		var facebookBtn = "<a class='btn' onclick='sharing.facebookPublish(" + m + ")'>Facebook It</a>";
+	facebookBtnHTML: function() {
+		//var facebookBtn = "<a id='fcbook' class='btn' onclick='sharing.facebookPublish(" + m + ")'>Facebook It</a>";
+		var facebookBtn = "<a id='fcbook' class='btn'>Facebook It</a>";
 
 		return facebookBtn;
+	},
+
+	addFacebookClickHandler: function(code) {
+		$("#fcbook").click(function() {
+			sharing.facebookPublish(code)
+		});
 	},
 
 	googleBtnHTML: function() {
@@ -140,7 +147,7 @@ var sharing = {
 		FB.ui({
 		  method: 'share',
 		  href: 'http://rikkhop.github.io/talk-in-code/',
-		  quote: code + ' Translate at http://rikkhop.github.io/talk-in-code/',
+		  quote: '' + code + ' Translate at http://rikkhop.github.io/talk-in-code/',
 		}, function(response){});
 	},
 
