@@ -103,7 +103,7 @@ var UI = {
 		$("#controls").append(sharingBtns);
 
 		this.addShareClickHandler();
-		sharing.googleInteractive();
+		sharing.googleInteractive(morseCode);
 
 	},
 
@@ -172,13 +172,14 @@ var sharing = {
 		});
 	},
 
-	googleInteractive: function() {
+	googleInteractive: function(morseCode) {
 	
 	  var options = {
 	    contenturl: 'http://rikkhop.github.io/talk-in-code/',
 	    clientid: '236339147444-pkt4hncebrn6l2j20a9h02g1upsl10ol.apps.googleusercontent.com',
 	    cookiepolicy: 'none',
-	    prefilltext: 'translate it',
+	    prefilltext: morseCode + 'translate it',
+	    calltoactionurl: 'http://rikkhop.github.io/talk-in-code/',
 	    calltoactionlabel: 'Translate'
 	  };
 	  // Call the render method when appropriate within your app to display

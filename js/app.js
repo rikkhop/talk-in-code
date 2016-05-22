@@ -4,6 +4,4 @@ var morseCode = { a: ".-", b:	"-...", c: "-.-.", d:	"-..", e:	".", f:	"..-.", g:
 
 UI.displayInput();
 
-$('.textarea-scrollbar').scrollbar();
-
 
