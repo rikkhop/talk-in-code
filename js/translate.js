@@ -95,14 +95,17 @@ var UI = {
 	displayOutput: function(morseCode) {
 		
 		var output = this.outputHTML(morseCode),
-		sharingBtns = this.sharingBtnHTML(morseCode);
+		sharingBtns = "";
+		sharingBtns += sharing.twitterBtnHTML(morseCode);
+		sharingBtns += sharing.facebookBtnHTML(morseCode);
+		sharingBtns += sharing.googleBtnHTML(morseCode);
 	
 		$("#app").find("textarea").remove();
 		$("#controls").find("#translate").remove();
 		$("#app").append(output);
 		$("#controls").append(sharingBtns);
 
-		this.addShareClickHandler();
+		sharing.addShareClickHandler();
 		sharing.googleInteractive(morseCode);
 
 	},
@@ -140,24 +143,24 @@ var UI = {
 var sharing = {
 
 	twitterBtnHTML: function(morseCode) {
-		var twitterBtn = "<a id='twit' class='btn share' href='https://twitter.com/intent/tweet?text=" + morseCode + "Translate it at www.rikkhop.github.io/talk-in-code/'>Tweet It</a>";
+		var twitterBtn = "<a class='btn' href='https://twitter.com/intent/tweet?text=" + morseCode + "Translate it at www.rikkhop.github.io/talk-in-code/'>Tweet It</a>";
 
 		return twitterBtn;
 	},
 
 	facebookBtnHTML: function() {
-		var facebookBtn = '<a class="btn share" onclick="UI.facebookPublish(morseCode)">Facebook It</a>';
+		var facebookBtn = "<a class='btn' onclick='sharing.facebookPublish(morseCode)'>Facebook It</a>";
 
 		return facebookBtn;
 	},
 
 	googleBtnHTML: function() {
-		var googleBtn = '<a class="btn share" href="https://plus.google.com/share?url=http://rikkhop.github.io/talk-in-code/">G+ It</a>';
+		var googleBtn = "<a id='sharePost' class='btn'>G+ It</a>";
 
 		return googleBtn;
 	},
 
-	facebookPublish: function() {
+	facebookPublish: function(morseCode) {
 		FB.ui({
 		  method: 'share',
 		  href: 'http://rikkhop.github.io/talk-in-code/',
@@ -178,12 +181,11 @@ var sharing = {
 	    contenturl: 'http://rikkhop.github.io/talk-in-code/',
 	    clientid: '236339147444-pkt4hncebrn6l2j20a9h02g1upsl10ol.apps.googleusercontent.com',
 	    cookiepolicy: 'none',
-	    prefilltext: morseCode + 'translate it',
-	    calltoactionurl: 'http://rikkhop.github.io/talk-in-code/',
-	    calltoactionlabel: 'Translate'
+	    prefilltext: morseCode + 'Translate it at www.rikkhop.github.io/talk-in-code',
+	    calltoactionlabel: 'TRY_IT',
+	    calltoactionurl: 'http://rikkhop.github.io/talk-in-code/'
 	  };
-	  // Call the render method when appropriate within your app to display
-	  // the button.
+	
 	  gapi.interactivepost.render('sharePost', options);
 
 	}
