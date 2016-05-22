@@ -4,6 +4,17 @@
   /* IE9 Compat Modes */
   src: url("../fonts/bebasneue-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/bebasneue-webfont.woff2") format("woff2"), url("../fonts/bebasneue-webfont.woff") format("woff"), url("../fonts/bebasneue-webfont.ttf") format("truetype"), url("../fonts/bebasneue-webfont.svg#svgFontName") format("svg");
   /* Legacy iOS */ }
+@font-face {
+  font-family: 'Roboto-Bold';
+  src: url("../fonts/robot-bold-webfont.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/robot-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/robot-bold-webfont.woff2") format("woff2"), url("../fonts/robot-bold-webfont.woff") format("woff"), url("../fonts/robot-bold-webfont.ttf") format("truetype"), url("../fonts/robot-bold-webfont.svg#svgFontName") format("svg");
+  /* Legacy iOS */ }
+.group, .header-container:after {
+  content: "";
+  display: table;
+  clear: both; }
+
 * {
   box-sizing: border-box; }
 
@@ -18,7 +29,7 @@ body {
       font-size: 17px; } }
 
 p {
-  font-family: "Roboto", sans-serif;
+  font-family: "Roboto Bold", sans-serif;
   font-weight: 700; }
 
 a {
@@ -44,58 +55,22 @@ textarea:focus {
 ::-webkit-input-placeholder {
   /* Chrome */
   color: #4b4b4b;
-  opacity: 1;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease; }
+  opacity: 1; }
 
 :-ms-input-placeholder {
   /* IE 10+ */
   color: #4b4b4b;
-  opacity: 1;
-  -ms-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease; }
+  opacity: 1; }
 
 ::-moz-placeholder {
   /* Firefox 19+ */
   color: #4b4b4b;
-  opacity: 1;
-  -moz-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease; }
+  opacity: 1; }
 
 :-moz-placeholder {
   /* Firefox 4 - 18 */
   color: #4b4b4b;
-  opacity: 1;
-  -moz-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease; }
-
-:focus::-webkit-input-placeholder {
-  /* Chrome */
-  color: #4b4b4b;
-  opacity: 0;
-  -webkit-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease; }
-
-:focus:-ms-input-placeholder {
-  /* IE 10+ */
-  color: #4b4b4b;
-  opacity: 0;
-  -ms-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease; }
-
-:focus::-moz-placeholder {
-  /* Firefox 19+ */
-  color: #4b4b4b;
-  opacity: 0;
-  -moz-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease; }
-
-:focus:-moz-placeholder {
-  /* Firefox 4 - 18 */
-  color: #4b4b4b;
-  opacity: 0;
-  -moz-transition: opacity 0.2s ease;
-  transition: opacity 0.2s ease; }
+  opacity: 1; }
 
 .intro h1 {
   margin: 0;
@@ -166,7 +141,7 @@ textarea:focus {
   outline: none; }
 
 .clear {
-  width: 45px;
+  width: 40px;
   position: absolute;
   right: 30px;
   margin-top: 35px;
@@ -183,7 +158,10 @@ textarea:focus {
   padding-left: 20px;
   margin-left: 0; }
 
-.group:after {
+.hide {
+  display: none; }
+
+.group:after, .header-container:after {
   content: "";
   display: table;
   clear: both; }
@@ -235,7 +213,11 @@ textarea:focus {
       height: 245px;
       padding: 0 30px; } }
 
-header {
+.input {
+  max-height: 245px;
+  max-width: 80%; }
+
+.header-container {
   background: #fff;
   position: absolute;
   width: 100%;
@@ -250,11 +232,11 @@ header {
       display: block; } }
   .header-title p {
     font-size: 22px;
-    margin: 10px 0; }
+    margin: 9px 0 10px; }
 
 .like-buttons {
   float: left;
-  margin: 11px 0; }
+  margin: 11px 0 10px; }
   .like-buttons li {
     float: left;
     padding-right: 15px; }

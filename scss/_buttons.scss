@@ -29,7 +29,7 @@
 }
 
 .clear {
-	width: 45px;
+	width: 40px;
 	position: absolute;
 	right: 30px;
 	margin-top: 35px;
@@ -46,4 +46,8 @@
 .like-buttons {
 	padding-left: 20px;
 	margin-left: 0;
+}
+
+.hide {
+	display: none;
 }

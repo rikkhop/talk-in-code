@@ -52,7 +52,7 @@ var UI = {
 	outputHTML: function(morseCode) {
 		var outputHTML = "";
 
-		outputHTML += '<p id="output" class="text-main">';
+		outputHTML += '<p id="output" itemprop="description" class="text-main">';
 		outputHTML += morseCode;
 		outputHTML += '</p>';
 
@@ -68,18 +68,27 @@ var UI = {
 	sharingBtnHTML: function(morseCode) {
 		var sharingBtn = "";
 
-		sharingBtn += '<a class="btn" href="https://twitter.com/intent/tweet?text=' + morseCode + 'Translate it at www.rikkhop.github.io/talk-in-code/" onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=600");return false;">Tweet It</a>';
-		sharingBtn += '<a class="btn" onclick="UI.facebookPublish(' + morseCode + ')">Facebook It</a>';
-		sharingBtn += '<a class="btn" href="https://plus.google.com/share?url=http://rikkhop.github.io/talk-in-code/" onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");return false;">G+ It</a>';
+		//sharingBtn += '<a id="twit" class="btn twitter-share-button" href="https://twitter.com/intent/tweet?text=' + morseCode + 'Translate it at www.rikkhop.github.io/talk-in-code/" onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=no,scrollbars=yes,height=300,width=600");return false;">Tweet It</a>';
+		sharingBtn += '<a id="twit" class="btn share" href="https://twitter.com/intent/tweet?text=' + morseCode + 'Translate it at www.rikkhop.github.io/talk-in-code/" >Tweet It</a>';
+		sharingBtn += '<a class="btn share" onclick="UI.facebookPublish(morseCode)">Facebook It</a>';
+		//sharingBtn += '<a class="btn share" href="https://www.facebook.com/dialog/feed?app_id=238677186523439&link=http://rikkhop.github.io/talk-in-code/&name=Facebook%20Dialogs&caption=Reference%20Documentation&description=' + morseCode + '&redirect_uri=https://mighty-lowlands-6381.herokuapp.com/">Facebook It</a>';
+		sharingBtn += '<a class="btn share" href="https://plus.google.com/share?url=http://rikkhop.github.io/talk-in-code/">G+ It</a>';
 
 		return sharingBtn;
 	},
 
-	facebookPublish: function(morseCode) {
+	addShareClickHandler: function() {
+		$(".share").click(function() {
+			window.open(this.href, "", "menubar=no,toolbar=no,resizable=no,scrollbars=yes,height=450,width=600");
+			return false;
+		});
+	},
+
+	facebookPublish: function() {
 		FB.ui({
 		  method: 'share',
 		  href: 'http://rikkhop.github.io/talk-in-code/',
-		  quote: 'Translate ' + morseCode + ' at http://rikkhop.github.io/talk-in-code/',
+		  quote: morseCode + ' Translate at http://rikkhop.github.io/talk-in-code/',
 		}, function(response){});
 	},
 
@@ -88,14 +97,18 @@ var UI = {
 		var output = this.outputHTML(morseCode),
 		sharingBtns = this.sharingBtnHTML(morseCode);
 	
-		$("#app").children("textarea").remove();
+		$("#app").find("textarea").remove();
+		$("#controls").find("#translate").remove();
 		$("#app").append(output);
-		$("#controls").children().remove();
 		$("#controls").append(sharingBtns);
+
+		this.addShareClickHandler();
+		sharing.googleInteractive();
+
 	},
 
 	reset: function() {
-		$("#app").children("textarea").remove();
+		$("#app").find("textarea").remove();
 		$("#app").children("p").remove();
 		$("#controls").children().remove();
 		UI.displayInput();
@@ -125,22 +138,54 @@ var UI = {
 ///////////////////
 
 var sharing = {
-	sharingBtnHTML: function(morseCode) {
-		var sharingBtn = "";
 
-		sharingBtn += '<a class="btn" href="https://twitter.com/intent/tweet?text=' + morseCode + 'Translate it at www.rikkhop.github.io/talk-in-code/" onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=600");return false;">Tweet It</a>';
-		sharingBtn += '<a class="btn" onclick="UI.facebookPublish(' + morseCode + ')">Facebook It</a>';
-		sharingBtn += '<a class="btn" href="https://plus.google.com/share?url=http://rikkhop.github.io/talk-in-code/" onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=600,width=600");return false;">G+ It</a>';
+	twitterBtnHTML: function(morseCode) {
+		var twitterBtn = "<a id='twit' class='btn share' href='https://twitter.com/intent/tweet?text=" + morseCode + "Translate it at www.rikkhop.github.io/talk-in-code/'>Tweet It</a>";
 
-		return sharingBtn;
+		return twitterBtn;
 	},
 
-	facebookPublish: function(morseCode) {
+	facebookBtnHTML: function() {
+		var facebookBtn = '<a class="btn share" onclick="UI.facebookPublish(morseCode)">Facebook It</a>';
+
+		return facebookBtn;
+	},
+
+	googleBtnHTML: function() {
+		var googleBtn = '<a class="btn share" href="https://plus.google.com/share?url=http://rikkhop.github.io/talk-in-code/">G+ It</a>';
+
+		return googleBtn;
+	},
+
+	facebookPublish: function() {
 		FB.ui({
 		  method: 'share',
 		  href: 'http://rikkhop.github.io/talk-in-code/',
-		  quote: morseCode + 'Translate it at http://rikkhop.github.io/talk-in-code/',
+		  quote: morseCode + ' Translate at http://rikkhop.github.io/talk-in-code/',
 		}, function(response){});
 	},
 
+	addShareClickHandler: function() {
+		$(".share").click(function() {
+			window.open(this.href, "", "menubar=no,toolbar=no,resizable=no,scrollbars=yes,height=300,width=600");
+			return false;
+		});
+	},
+
+	googleInteractive: function() {
+	
+	  var options = {
+	    contenturl: 'http://rikkhop.github.io/talk-in-code/',
+	    clientid: '236339147444-pkt4hncebrn6l2j20a9h02g1upsl10ol.apps.googleusercontent.com',
+	    cookiepolicy: 'none',
+	    prefilltext: 'translate it',
+	    calltoactionlabel: 'Translate'
+	  };
+	  // Call the render method when appropriate within your app to display
+	  // the button.
+	  gapi.interactivepost.render('sharePost', options);
+
+	}
+
 }
+
