@@ -8,6 +8,7 @@ function Translation(input, code) {
 }
 
 Translation.prototype.inputArray = function() {
+	// split message input into array of characters
 	var input = this.input,
 	inputArray = input.split("");
 
@@ -18,8 +19,8 @@ Translation.prototype.translate = function() {
 	var array = this.inputArray(),
 			code = this.code,
 			output = "";
+	// for each character get the corresponding morse code
 	$.each(array, function(i, val) {
-		// for each character get the corresponding morse code
 		$.each(code, function(mi, mval) {
 			//concatenate each morse letter together to form one string
 			if(val === mi) {
