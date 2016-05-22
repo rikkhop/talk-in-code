@@ -123,7 +123,6 @@ var sharing = {
 	},
 
 	facebookBtnHTML: function() {
-		//var facebookBtn = "<a id='fcbook' class='btn' onclick='sharing.facebookPublish(" + m + ")'>Facebook It</a>";
 		var facebookBtn = "<a id='fcbook' class='btn'>Facebook It</a>";
 
 		return facebookBtn;
@@ -142,12 +141,10 @@ var sharing = {
 	},
 
 	facebookPublish: function(code) {
-		console.log(code);
-
 		FB.ui({
 		  method: 'share',
 		  href: 'http://rikkhop.github.io/talk-in-code/',
-		  quote: '' + code + ' Translate at http://rikkhop.github.io/talk-in-code/',
+		  quote: code + ' Translate at http://rikkhop.github.io/talk-in-code/',
 		}, function(response){});
 	},
 
