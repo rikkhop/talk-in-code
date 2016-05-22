@@ -117,7 +117,8 @@ var UI = {
 var sharing = {
 
 	twitterBtnHTML: function(code) {
-		var twitterBtn = "<a id='twttr' class='btn' href='https://twitter.com/intent/tweet?text=" + code + "Translate it at www.rikkhop.github.io/talk-in-code/'>Tweet It</a>";
+		var c = escape(code);
+		var twitterBtn = "<a id='twttr' class='btn' href='https://twitter.com/intent/tweet?text=" + c + "Translate it at www.rikkhop.github.io/talk-in-code/'>Tweet It</a>";
 
 		return twitterBtn;
 	},
