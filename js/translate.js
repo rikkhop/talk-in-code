@@ -49,11 +49,11 @@ var UI = {
 		return inputHTML;
 	},
 
-	outputHTML: function(morseCode) {
+	outputHTML: function(code) {
 		var outputHTML = "";
 
 		outputHTML += '<p id="output" itemprop="description" class="text-main">';
-		outputHTML += morseCode;
+		outputHTML += code;
 		outputHTML += '</p>';
 
 		return outputHTML;
@@ -65,48 +65,21 @@ var UI = {
 		return translateBtn;
 	},
 
-	sharingBtnHTML: function(morseCode) {
-		var sharingBtn = "";
-
-		//sharingBtn += '<a id="twit" class="btn twitter-share-button" href="https://twitter.com/intent/tweet?text=' + morseCode + 'Translate it at www.rikkhop.github.io/talk-in-code/" onclick="javascript:window.open(this.href, "", "menubar=no,toolbar=no,resizable=no,scrollbars=yes,height=300,width=600");return false;">Tweet It</a>';
-		sharingBtn += '<a id="twit" class="btn share" href="https://twitter.com/intent/tweet?text=' + morseCode + 'Translate it at www.rikkhop.github.io/talk-in-code/" >Tweet It</a>';
-		sharingBtn += '<a class="btn share" onclick="UI.facebookPublish(morseCode)">Facebook It</a>';
-		//sharingBtn += '<a class="btn share" href="https://www.facebook.com/dialog/feed?app_id=238677186523439&link=http://rikkhop.github.io/talk-in-code/&name=Facebook%20Dialogs&caption=Reference%20Documentation&description=' + morseCode + '&redirect_uri=https://mighty-lowlands-6381.herokuapp.com/">Facebook It</a>';
-		sharingBtn += '<a class="btn share" href="https://plus.google.com/share?url=http://rikkhop.github.io/talk-in-code/">G+ It</a>';
-
-		return sharingBtn;
-	},
-
-	addShareClickHandler: function() {
-		$(".share").click(function() {
-			window.open(this.href, "", "menubar=no,toolbar=no,resizable=no,scrollbars=yes,height=450,width=600");
-			return false;
-		});
-	},
-
-	facebookPublish: function() {
-		FB.ui({
-		  method: 'share',
-		  href: 'http://rikkhop.github.io/talk-in-code/',
-		  quote: morseCode + ' Translate at http://rikkhop.github.io/talk-in-code/',
-		}, function(response){});
-	},
-
-	displayOutput: function(morseCode) {
+	displayOutput: function(code) {
 		
-		var output = this.outputHTML(morseCode),
+		var output = this.outputHTML(code),
 		sharingBtns = "";
-		sharingBtns += sharing.twitterBtnHTML(morseCode);
-		sharingBtns += sharing.facebookBtnHTML(morseCode);
-		sharingBtns += sharing.googleBtnHTML(morseCode);
+		sharingBtns += sharing.twitterBtnHTML(code);
+		sharingBtns += sharing.facebookBtnHTML(code);
+		sharingBtns += sharing.googleBtnHTML(code);
 	
 		$("#app").find("textarea").remove();
 		$("#controls").find("#translate").remove();
 		$("#app").append(output);
 		$("#controls").append(sharingBtns);
 
-		sharing.addShareClickHandler();
-		sharing.googleInteractive(morseCode);
+		sharing.addTwttrClickHandler();
+		sharing.googleInteractive(code);
 
 	},
 
@@ -142,14 +115,15 @@ var UI = {
 
 var sharing = {
 
-	twitterBtnHTML: function(morseCode) {
-		var twitterBtn = "<a class='btn' href='https://twitter.com/intent/tweet?text=" + morseCode + "Translate it at www.rikkhop.github.io/talk-in-code/'>Tweet It</a>";
+	twitterBtnHTML: function(code) {
+		var twitterBtn = "<a id='twttr' class='btn' href='https://twitter.com/intent/tweet?text=" + code + "Translate it at www.rikkhop.github.io/talk-in-code/'>Tweet It</a>";
 
 		return twitterBtn;
 	},
 
-	facebookBtnHTML: function() {
-		var facebookBtn = "<a class='btn' onclick='sharing.facebookPublish(morseCode)'>Facebook It</a>";
+	facebookBtnHTML: function(code) {
+		var m = escape(code);
+		var facebookBtn = "<a class='btn' onclick='sharing.facebookPublish(" + m + ")'>Facebook It</a>";
 
 		return facebookBtn;
 	},
@@ -160,30 +134,30 @@ var sharing = {
 		return googleBtn;
 	},
 
-	facebookPublish: function(morseCode) {
-		var morseCode = escape(morseCode);
+	facebookPublish: function(code) {
+		console.log(code);
 
 		FB.ui({
 		  method: 'share',
 		  href: 'http://rikkhop.github.io/talk-in-code/',
-		  quote: morseCode + ' Translate at http://rikkhop.github.io/talk-in-code/',
+		  quote: code + ' Translate at http://rikkhop.github.io/talk-in-code/',
 		}, function(response){});
 	},
 
-	addShareClickHandler: function() {
-		$(".share").click(function() {
+	addTwttrClickHandler: function() {
+		$("#twttr").click(function() {
 			window.open(this.href, "", "menubar=no,toolbar=no,resizable=no,scrollbars=yes,height=300,width=600");
 			return false;
 		});
 	},
 
-	googleInteractive: function(morseCode) {
+	googleInteractive: function(code) {
 	
 	  var options = {
 	    contenturl: 'http://rikkhop.github.io/talk-in-code/',
 	    clientid: '236339147444-pkt4hncebrn6l2j20a9h02g1upsl10ol.apps.googleusercontent.com',
 	    cookiepolicy: 'none',
-	    prefilltext: morseCode + 'Translate it at www.rikkhop.github.io/talk-in-code',
+	    prefilltext: code + 'Translate it at www.rikkhop.github.io/talk-in-code',
 	    calltoactionlabel: 'TRY_IT',
 	    calltoactionurl: 'http://rikkhop.github.io/talk-in-code/'
 	  };
