@@ -164,7 +164,7 @@ var sharing = {
 		FB.ui({
 		  method: 'share',
 		  href: 'http://rikkhop.github.io/talk-in-code/',
-		  quote: morseCode + ' Translate at http://rikkhop.github.io/talk-in-code/',
+		  quote: ''+ morseCode + ' Translate at http://rikkhop.github.io/talk-in-code/',
 		}, function(response){});
 	},
 
