@@ -1,0 +1,37 @@
+.header-container {
+	background: $white;
+	position: absolute;
+	width: 100%;
+	top: 0;
+		&:after {
+			@extend .group;
+		}
+}
+
+.header-title {
+	display: none;
+	float: right;
+	margin: 0 35px;
+		@media #{$brk-sm} {
+			display: block;
+		}
+		& p {
+			font-size: 22px;
+			margin: 9px 0 10px;
+		}
+}
+
+.like-buttons {
+	float: left;
+	margin: 11px 0 10px;
+	 	& li {
+			float: left;
+			padding-right: 15px; 
+	 	}
+}
+
+// Change width of G+ button
+
+#___plusone_0 { 
+	width:60px !important; 
+}
