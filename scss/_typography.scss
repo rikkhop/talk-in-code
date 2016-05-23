@@ -1,0 +1,40 @@
+.intro h1 {
+	margin: 0;
+	padding-right: 20px;
+	display: inline-block;
+	vertical-align: middle;
+		@media #{$brk-sm} {
+			padding-right: 45px;
+		}
+}
+
+.intro p {
+	margin: 10px 0;
+		@media #{$brk-sm} {
+			margin: 15px 0;
+		}
+}
+
+.sub-title {
+	font-family: $brand-font;
+	font-size: 24px;
+	font-weight: 400;
+	text-align: right;
+	display: inline-block;
+	vertical-align: middle;
+		@media #{$brk-sm} {
+			font-size: 38px;
+		}
+}
+
+.text-main {
+	color: $dark-gray;
+	font-family: $brand-font;
+	font-size: 52px;
+	font-weight: 400;
+	line-height: 0.9;
+	letter-spacing: -2px;
+		@media #{$brk-sm} {
+			font-size: 82px;
+		}
+}
